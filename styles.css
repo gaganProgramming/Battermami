@@ -1,86 +1,92 @@
+
 /* General Styles */
+
+hr{
+    font-weight: bolder;
+
+    
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-}
+    background-color: #EBD3F8;
+    }
 
+/* Header Styling */
 header {
-    display: flex;
+    display:flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #fff;
+    padding: 0.5rem 1rem; /* Reduced padding for more compact look */
+    background-color: #2E073F;
     border-bottom: 1px solid #ccc;
+    height: 60px;
 }
 
 /* Logo */
 .logo img {
-    width: 15rem;
+    width: 90px; /* Adjusted logo width */
     height: auto;
-    padding-left: 5rem;
+    padding-left: 0; /* Removed excessive padding */
 }
 
 /* Navigation Styles */
 .nav-links {
     list-style: none;
     display: flex;
-    align-items: center;
+    align-items: center; /* Align items vertically centered */
 }
 
 .nav-links li {
-    margin-left: 20px;
+    margin-left: 15px; /* Reduced margin between links */
 }
 
 .nav-links li a {
     text-decoration: none;
-    color: #474141;
-    font-size: 2rem;
-    padding: 10px 15px;
-    transition: color 0.3s ease;
-    color: #474141;
+    color: #fff;
     font-family: Montserrat, sans-serif;
-    font-size: 2.5 rem;
+    font-size: 1rem; /* Reduced font size for a compact look */
     font-weight: 600;
+    padding: 5px 10px; /* Reduced padding */
+    transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-    color: #8b0304; /* Hover color */
-    /* background-color: #f9f9f9; Optional background change */
+    color: #5a6e2f; /* Hover color */
     border-radius: 5px; /* Rounded corners */
 }
 
 /* Order Now Button */
 .order-now {
-    background-color: #8b0304;
+    background-color: #5a6e2f;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 15px; /* Reduced padding */
     cursor: pointer;
     border-radius: 2rem;
-    font-size: 2rem;
+    font-size: 1.2rem; /* Reduced font size */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .order-now:hover {
-    background-color: #480303; /* Darker hover color */
+    background-color: #acd751; /* Darker hover color */
     transform: scale(1.05); /* Slight scale on hover */
 }
 
-/* Responsive Menu */
+/* Responsive Menu Toggle */
 .nav-toggle {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 80px;
         right: 0;
-        background-color: #fff;
+        background-color: #111;
         width: 100%;
         border-top: 1px solid #ccc;
     }
@@ -91,15 +97,54 @@ header {
 
     .nav-toggle {
         display: block;
+        font-size: 1.5rem; /* Adjust font size for menu button */
     }
+
+    .nav-links li a {
+        font-size: 1.5rem; /* Slightly larger font for smaller screens */
+        padding: 10px 15px; /* Adjusted padding for mobile view */
+    }
+}
+
+
+/* 
+-------------Welcome page----------------> */
+#welcome-page{
+    height: 1rem;
+}
+#welcome-page h1{
+ 
+    font-family: 'Lora', serif; /* Elegant serif font */
+    font-size: 3rem; /* Large font size */
+    color: #333; /* Dark text color */
+    text-align:center; /* Center alignment */
+    margin: 1px; /* Margin around the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+#welcome-page p{
+    font-size:1rem;
+    font-weight: bold;
+    padding: left;
+    
+}
+#welcome-page h1::first-letter{
+    font-size: 3rem;
+    font-weight: bold;
+    color: #674636;
+}
+#welcome-page p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #674636;
 }
 
 /* Banner Section */
 .banner {
     text-align: center;
-    padding: 50px 20px;
-    background-color: #8b0304;
-    color: white;
+    padding: 0px;
+    background-color: #FFF8E8;
+    color: rgb(15, 15, 15);
+ 
 }
 
 .banner img {
@@ -107,15 +152,102 @@ header {
     height: auto;
 }
 
-.banner h1 {
-    margin-top: 20px;
-    font-size: 5rem;
-}
 
 .banner p {
-    font-size: 3rem;
-    margin-top: 10px;
+    font-size: 1rem;
+    margin-top: 1px;
 }
+
+/* ---------------Animations-------------- */
+
+/*------------Fly-In---------------> */
+/* @keyframes flyIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fly-in {
+    animation: flyIn 3s forwards;
+} */
+
+/* Infinite loop----> */
+@keyframes flyIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    80% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* The element stays at the final position for the pause */
+    }
+}
+
+.fly-in {
+    animation: flyIn 6s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+/* Grow and trun------------> */
+@keyframes growTurn {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.grow-turn {
+    animation: growTurn 3s forwards;
+}
+
+/*----------- Swivel----------- */
+@keyframes swivel {
+    0% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+.swivel {
+    animation: swivel 2.5s forwards;
+}
+
+
+/* Typing animation---------------- */
+.typing-container {
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    width: 0;
+    animation: typing 5s steps(11) 2s infinite, blink 12s step-end infinite;
+  }
+  
+  @keyframes typing {
+    0% { width: 0; }
+    50% { width: 70ch; }
+    100% { width: 0; }
+  }
+  
+  @keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: black; }
+  }
+
 
 /* General Section Styles */
 section {
@@ -125,21 +257,26 @@ section {
 
 section img {
     width: 100%;
-    height: auto;
+    height: 100;
     object-fit: cover;
 }
 
 section .content {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-/* --------------About Us--------------------------- */
+
+
+
+/* --------------About Us---------------------------------------------- */
 #about-us {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FEF9D9;
+    background-color: #EBD3F8;
     padding-left: 0;
+    
+    
 }
 
 #about-us img {
@@ -151,12 +288,14 @@ section .content {
 }
 
 #about-us .content {
-    max-width: 900px;
+    max-width:70%;
     text-align: center;
+    font-weight: bold;
+    
 }
 
 #about-us h2 {
-    font-size: 4rem;
+    font-size: 1.375rem;
     color: #333;
     margin-bottom: 20px;
     font-weight: bold;
@@ -164,17 +303,19 @@ section .content {
     letter-spacing: 1px;
 }
 
+
+
 #about-us p {
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 1.8;
     color: #666;
-    margin-bottom: 30px;
+    margin-bottom: 3px;
 }
 
 #about-us p::first-letter {
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #ff6347;
+    color: #674636;
 }
 
 #about-us .content p {
@@ -193,12 +334,12 @@ section .content {
     }
 }
 
-/* ---------Products---------------------------> */
+/* ---------Products-------------------------------------------------------> */
 #products {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FFEEA9;
+    background-color: #EBD3F8;
     padding: 50px 20px;
 }
 
@@ -211,12 +352,14 @@ section .content {
 }
 
 #products .content {
-    max-width: 900px;
+    font-weight: bold;
+    max-width:70%;
     text-align: center;
 }
 
+
 #products h2 {
-    font-size: 4rem;
+    font-size: 1.375rem;
     color: #333;
     margin-bottom: 20px;
     font-weight: bold;
@@ -225,7 +368,7 @@ section .content {
 }
 
 #products p {
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 1.8;
     color: #666;
     margin-bottom: 20px;
@@ -238,20 +381,19 @@ section .content {
 }
 
 #products ul li {
-    font-size: 2rem;
-    line-height: 1.8;
+    font-size: 1rem;
     margin: 10px 0;
     text-align: left;
 }
 
 #products ul li strong {
-    color: #ff6347;
+    color: #674636;
 }
 
 #products p::first-letter {
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #ff6347;
+    color: #674636;
 }
 
 /* Fade-in animation for the section */
@@ -265,13 +407,14 @@ section .content {
         opacity: 1;
     }
 }
-/* ---------------How we differ---------------------> */
-#how-we-differ {
+/* ---------------How we differ-----------------------------------------> */
+#how-we-differ{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FFE5E5;
+    background-color: #EBD3F8;
     padding: 50px 20px;
+    color: #111;
 }
 
 #how-we-differ img {
@@ -283,13 +426,14 @@ section .content {
 }
 
 #how-we-differ .content {
-    max-width: 900px;
+    font-weight: bold;
+    max-width:70%;
     text-align: center;
 }
 
 #how-we-differ h2 {
-    font-size: 4rem;
-    color: #333;
+    font-size: 1.375rem;
+    color: #111;
     margin-bottom: 20px;
     font-weight: bold;
     text-transform: uppercase;
@@ -297,9 +441,9 @@ section .content {
 }
 
 #how-we-differ p {
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 1.;
-    color: #666;
+    color: #111;
     margin-bottom: 20px;
 }
 
@@ -310,20 +454,19 @@ section .content {
 }
 
 #how-we-differ ul li {
-    font-size: 2rem;
-    line-height: 1.8;
+    font-size: 1rem;
     margin: 10px 0;
     text-align: left;
 }
 
 #how-we-differ ul li strong {
-    color: #ff6347;
+    color: #674636;
 }
 
 #how-we-differ p::first-letter {
     font-size: 3rem;
     font-weight: bold;
-    color: #ff6347;
+    color: #674636;
 }
 
 /* Fade-in animation for the section */
@@ -340,11 +483,11 @@ section .content {
 /* <!-- FAQ Section -------------------------------> */
 #faq {
     padding: 50px ;
-    background-color: #f9f9f9;
+    background-color: #EBD3F8;
 }
 
 #faq h2 {
-    font-size: 4rem;
+    font-size: 1.375rem;
     color: #333;
     text-align: center;
     margin-bottom: 30px;
@@ -359,9 +502,9 @@ section .content {
 
 .faq-question {
     width: 85%;
-    background-color: #ff6347;
+    background-color: #AD49E1;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 15px;
     text-align: left;
     border: none;
@@ -372,15 +515,16 @@ section .content {
 }
 
 .faq-question:hover {
-    background-color: #ff4500;
+    background-color: #7A1CAC;
 }
 
 .faq-answer {
     display: none;
-    padding: 20px;
-    background-color: #fff;
-    color: #666;
-    font-size: 1.2rem;
+    padding: 2px;
+    background-color: #EBD3F8;
+    color: #111;
+    font-size: 1rem;
+    font-weight: bold;
     line-height: 1.8;
 }
 
@@ -401,7 +545,7 @@ section .content {
 /* Add icons for opening and closing */
 .faq-question::after {
     content: '\002B'; /* Plus sign */
-    font-size: 1.5rem;
+    font-size: 1rem;
     float: right;
 }
 
@@ -421,9 +565,9 @@ section .content {
     }
 }
 
-/* <!-- Contact Section --> */
+/* <!-- Contact Section ---------------------------------------------------> */
 .contact-footer {
-    background-color: #3b3131;
+    background-color: #2E073F;
     color: #fff;
     padding: 40px 20px;
     text-align: center;
@@ -502,6 +646,3 @@ section .content {
     font-size: 14px;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
-}
