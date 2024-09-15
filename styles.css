@@ -92,13 +92,13 @@ header {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
 }
 #welcome-page p{
-    font-size:1rem;
+    font-size:0.9rem;
     font-weight: bold;
     padding: left;
     
 }
 #welcome-page h1::first-letter{
-    font-size: 3rem;
+    font-size:3rem;
     font-weight: bold;
     color: #674636;
 }
@@ -628,6 +628,7 @@ section .content {
 /* Responsive Menu Toggle------------------------------------- */
 .nav-toggle {
     display: none;
+    color:#2E073F
 }
 
 @media (max-width: 800px) {
@@ -669,12 +670,12 @@ section .content {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
 }
 #welcome-page p{
-    font-size:0.5rem;
+    font-size:1rem;
     font-weight: bold;
     padding: left;
 }  
 #welcome-page p::first-letter {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #674636;
 }
